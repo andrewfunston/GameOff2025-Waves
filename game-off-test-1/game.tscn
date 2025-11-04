@@ -99,5 +99,5 @@ position = Vector2(0, 229)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_eow3j")
 
-[node name="enemy" parent="Killzone" instance=ExtResource("2_eow3j")]
-position = Vector2(-25, -229)
+[node name="enemy" parent="." instance=ExtResource("2_eow3j")]
+position = Vector2(80, 0)
