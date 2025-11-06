@@ -37,6 +37,8 @@ func _physics_process(delta):
 		processFalling()
 	elif mState == States.jumping:
 		processJump()
+	elif mState == States.walking:
+		processWalking()	
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -51,7 +53,7 @@ func _physics_process(delta):
 
 func processFalling():
 	if is_on_floor():
-		print("is on floor")
+		# we have an animation for "landing" we may want to add in.
 		if velocity.x == 0:
 			mState = States.idle
 			mAnimatedSprite2D.play("idle")
@@ -64,17 +66,22 @@ func processIdle():
 		velocity.y = JUMP_VELOCITY
 		mState = States.jumping
 		mAnimatedSprite2D.play("jump")
-	elif velocity.x > 0:
+	elif velocity.x != 0:
 		mState = States.walking
 		mAnimatedSprite2D.play("walking")
 		
 func processJump():
 	# velocity.y < 0 means that we're still "jumping"
 	# velocity.x > 0 means we've started falling
-	
 	if velocity.y >= 0:
 		mState = States.falling
 		mAnimatedSprite2D.play("falling")
 		
 func processWalking():
-	pass
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		mState = States.jumping
+		mAnimatedSprite2D.play("jump")
+	elif velocity.x == 0:
+		mState = States.idle
+		mAnimatedSprite2D.play("idle")
