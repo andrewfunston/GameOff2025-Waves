@@ -9,6 +9,7 @@
 script = ExtResource("1_v30q8")
 
 [node name="Player" parent="." instance=ExtResource("1_o1p5k")]
+position = Vector2(0, -25)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -19,3 +20,9 @@ position_smoothing_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 23)
 shape = SubResource("WorldBoundaryShape2D_v30q8")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -3.0
+offset_top = 25.0
+offset_right = 1.0
+offset_bottom = 52.0

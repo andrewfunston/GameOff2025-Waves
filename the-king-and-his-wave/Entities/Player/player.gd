@@ -1,19 +1,24 @@
 extends CharacterBody2D
 
+enum States {idle, walking, running, jumping, falling, landing}
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
 @onready var mAnimatedSprite2D = $AnimatedSprite2D
 
+var mState:States = States.idle
+var mLastVelocity:Vector2
+
+func _ready():# Called when the node enters the scene tree for the first time.
+	# when the start the level if we're not on the floor we need to start falling.
+	if not is_on_floor():
+		mState = States.falling
+		mAnimatedSprite2D.play("falling")
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+	print(str(velocity) + " " + str(position))
+	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if direction:
@@ -23,7 +28,53 @@ func _physics_process(delta):
 			mAnimatedSprite2D.flip_h = true	
 			
 		velocity.x = direction * SPEED
-	else:
+	else: # this reduces the velocity towards 0 by SPEED
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if mState == States.idle:
+		processIdle()
+	elif mState == States.falling:
+		processFalling()
+	elif mState == States.jumping:
+		processJump()
+		
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+
+
+	mLastVelocity = velocity
 	move_and_slide()
+
+func processFalling():
+	if is_on_floor():
+		print("is on floor")
+		if velocity.x == 0:
+			mState = States.idle
+			mAnimatedSprite2D.play("idle")
+		else:
+			mState = States.walking
+			mAnimatedSprite2D.play("walking")
+	
+func processIdle():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		mState = States.jumping
+		mAnimatedSprite2D.play("jump")
+	elif velocity.x > 0:
+		mState = States.walking
+		mAnimatedSprite2D.play("walking")
+		
+func processJump():
+	# velocity.y < 0 means that we're still "jumping"
+	# velocity.x > 0 means we've started falling
+	
+	if velocity.y >= 0:
+		mState = States.falling
+		mAnimatedSprite2D.play("falling")
+		
+func processWalking():
+	pass
