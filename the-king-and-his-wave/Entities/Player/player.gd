@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -300.0
 
 var mState:States = States.idle
 var mLastVelocity:Vector2
+var mIdleTime:float = 0
 
 func _ready():# Called when the node enters the scene tree for the first time.
 	# when the start the level if we're not on the floor we need to start falling.
@@ -32,7 +33,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if mState == States.idle:
-		processIdle()
+		processIdle(delta)
 	elif mState == States.falling:
 		processFalling()
 	elif mState == States.jumping:
@@ -55,13 +56,16 @@ func processFalling():
 	if is_on_floor():
 		# we have an animation for "landing" we may want to add in.
 		if velocity.x == 0:
-			mState = States.idle
-			mAnimatedSprite2D.play("idle")
+			startIdle()
 		else:
 			mState = States.walking
 			mAnimatedSprite2D.play("walking")
 	
-func processIdle():
+func processIdle(delta):
+	mIdleTime+=delta
+	if(mIdleTime>5 && mAnimatedSprite2D.animation == "idle"):
+		mAnimatedSprite2D.play("longIdle")
+		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		mState = States.jumping
@@ -83,5 +87,9 @@ func processWalking():
 		mState = States.jumping
 		mAnimatedSprite2D.play("jump")
 	elif velocity.x == 0:
-		mState = States.idle
-		mAnimatedSprite2D.play("idle")
+		startIdle()
+
+func startIdle():
+	mIdleTime=0
+	mState = States.idle
+	mAnimatedSprite2D.play("idle")
