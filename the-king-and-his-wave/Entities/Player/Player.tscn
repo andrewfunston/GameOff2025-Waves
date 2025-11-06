@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://xplx4jfe0j6o"]
+[gd_scene load_steps=12 format=3 uid="uid://xplx4jfe0j6o"]
 
 [ext_resource type="Texture2D" uid="uid://l216fsah77d6" path="res://Entities/Player/Art/main-idle.png" id="1_e5kic"]
+[ext_resource type="Script" uid="uid://t2xhxr1178sy" path="res://Entities/Player/player.gd" id="1_ww0jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww0jn"]
 atlas = ExtResource("1_e5kic")
@@ -67,8 +68,9 @@ animations = [{
 }]
 
 [node name="Player" type="Node2D"]
+script = ExtResource("1_ww0jn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hacra")
 animation = &"idle"
-frame_progress = 0.08761916
+frame_progress = 0.9323968
