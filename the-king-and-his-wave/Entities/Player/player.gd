@@ -14,8 +14,7 @@ var mIdleTime:float = 0
 func _ready():# Called when the node enters the scene tree for the first time.
 	# when the start the level if we're not on the floor we need to start falling.
 	if not is_on_floor():
-		mState = States.falling
-		mAnimatedSprite2D.play("falling")
+		startFall()
 
 func _physics_process(delta):
 	print(str(velocity) + " " + str(position))
@@ -47,8 +46,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-
-
 	mLastVelocity = velocity
 	move_and_slide()
 
@@ -58,8 +55,7 @@ func processFalling():
 		if velocity.x == 0:
 			startIdle()
 		else:
-			mState = States.walking
-			mAnimatedSprite2D.play("walking")
+			startWalk()
 	
 func processIdle(delta):
 	mIdleTime+=delta
@@ -67,28 +63,35 @@ func processIdle(delta):
 		mAnimatedSprite2D.play("longIdle")
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		mState = States.jumping
-		mAnimatedSprite2D.play("jump")
+		startJump()
 	elif velocity.x != 0:
-		mState = States.walking
-		mAnimatedSprite2D.play("walking")
-		
+		startWalk()
+
 func processJump():
 	# velocity.y < 0 means that we're still "jumping"
 	# velocity.x > 0 means we've started falling
 	if velocity.y >= 0:
-		mState = States.falling
-		mAnimatedSprite2D.play("falling")
-		
+		startFall()
+
 func processWalking():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		mState = States.jumping
-		mAnimatedSprite2D.play("jump")
+		startJump()
 	elif velocity.x == 0:
 		startIdle()
 
+func startWalk():
+	mState = States.walking
+	mAnimatedSprite2D.play("walking")
+	
+func startJump():
+	velocity.y = JUMP_VELOCITY
+	mState = States.jumping
+	mAnimatedSprite2D.play("jump")
+	
+func startFall():
+	mState = States.falling
+	mAnimatedSprite2D.play("falling")
+	
 func startIdle():
 	mIdleTime=0
 	mState = States.idle
