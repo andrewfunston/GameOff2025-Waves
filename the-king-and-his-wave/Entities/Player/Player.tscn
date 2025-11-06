@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://xplx4jfe0j6o"]
+
+[ext_resource type="Texture2D" uid="uid://l216fsah77d6" path="res://Entities/Player/Art/main-idle.png" id="1_e5kic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww0jn"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vweq0"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1des2"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an6q6"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t38ms"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj1c0"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x44r4"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_761t5"]
+atlas = ExtResource("1_e5kic")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hacra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww0jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vweq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1des2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an6q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t38ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj1c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x44r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_761t5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="Player" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hacra")
+animation = &"idle"
+frame_progress = 0.72921866
