@@ -80,7 +80,7 @@ func processJump():
 func processWalking():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		startJump()
-	elif(velocity.x > 150 || velocity.x < -150):
+	elif(velocity.x > 160 || velocity.x < -160):
 		startRun()
 		return	
 	elif velocity.x == 0:
@@ -89,7 +89,7 @@ func processWalking():
 func processRunning():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		startJump()
-	elif velocity.x < 150 && velocity.x > -150:
+	elif velocity.x < 160 && velocity.x > -160:
 		startWalk()
 		
 func startWalk():

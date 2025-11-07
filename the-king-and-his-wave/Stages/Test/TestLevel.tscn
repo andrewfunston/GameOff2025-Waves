@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://b7jo7te8t6k26"]
+[gd_scene load_steps=6 format=4 uid="uid://b7jo7te8t6k26"]
 
 [ext_resource type="PackedScene" uid="uid://xplx4jfe0j6o" path="res://Entities/Player/Player.tscn" id="1_o1p5k"]
 [ext_resource type="Script" uid="uid://nhxgdfqc6r44" path="res://Stages/Test/test_level.gd" id="1_v30q8"]
 [ext_resource type="TileSet" uid="uid://qxm6vwfm0nxg" path="res://Tilemaps/Beach/SoftBeachTileSet.tres" id="3_u8nij"]
+[ext_resource type="PackedScene" uid="uid://y77oudadopiw" path="res://Backgrounds/OceanBackground.tscn" id="4_ky2y5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v30q8"]
 
@@ -15,12 +16,13 @@ position = Vector2(145, 77)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
+zoom = Vector2(0.26, 0.26)
 position_smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(154, 132)
+[node name="the-ground" type="StaticBody2D" parent="."]
+position = Vector2(154, 148)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="the-ground"]
 position = Vector2(0, 23)
 shape = SubResource("WorldBoundaryShape2D_v30q8")
 
@@ -29,3 +31,5 @@ shape = SubResource("WorldBoundaryShape2D_v30q8")
 [node name="TileMapLayer" type="TileMapLayer" parent="Node"]
 tile_map_data = PackedByteArray("AAAQAAcAAAAFAAUAAAAQAAYAAAAPAAEAAAAPAAcAAAAIAAcAAAAPAAYAAAAGAAEAAAAQAAUAAAAHAAYAAAAPAAUAAAAAAAAAAAAEAAkAAAARAAMAAAAEAAgAAAAHAAIAAAAEAAcAAAASAAIAAAAEAAUAAAAOAAYAAAADAAkAAAADAAMAAAADAAgAAAACAAEAAAADAAcAAAARAAAAAAADAAYAAAADAAEAAAADAAUAAAALAAAAAAACAAkAAAATAAIAAAACAAgAAAABAAEAAAACAAcAAAAQAAAAAAACAAYAAAAEAAEAAAACAAUAAAABAAYAAAABAAkAAAALAAUAAAABAAgAAAACAAEAAAABAAcAAAAQAAAAAAABAAYAAAABAAEAAAABAAUAAAADAAAAAAAAAAkAAAAGAAQAAAAAAAgAAAAIAAQAAAAAAAcAAAAJAAgAAAAAAAYAAAAIAAEAAAAAAAUAAAAGAAAAAAAEAAYAAAABAAEAAAA=")
 tile_set = ExtResource("3_u8nij")
+
+[node name="OceanBackground" parent="." instance=ExtResource("4_ky2y5")]

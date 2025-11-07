@@ -1,13 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://y77oudadopiw"]
+[gd_scene load_steps=7 format=3 uid="uid://y77oudadopiw"]
 
 [ext_resource type="Texture2D" uid="uid://bnic4n8kjdt0b" path="res://Backgrounds/Art/background_sand.png" id="1_uudfk"]
+[ext_resource type="Texture2D" uid="uid://d36ucsiyi8tox" path="res://Backgrounds/Art/background_sky.png" id="2_fw1yu"]
+[ext_resource type="Texture2D" uid="uid://bn10hmpvox7l7" path="res://Backgrounds/Art/background_clouds_medium.png" id="2_kvj6v"]
+[ext_resource type="Texture2D" uid="uid://ddkj1lm5o3vng" path="res://Backgrounds/Art/background_clouds_small.png" id="2_qvgwp"]
+[ext_resource type="Texture2D" uid="uid://fs2xcxivk8mv" path="res://Backgrounds/Art/background_clouds_big.png" id="2_ur68e"]
+[ext_resource type="Texture2D" uid="uid://b0pigtwohu0tx" path="res://Backgrounds/Art/background_ocean.png" id="5_kk5mf"]
 
 [node name="OceanBackground" type="Node2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(1, 0)
-repeat_times = 2
+[node name="below" type="Parallax2D" parent="."]
+scroll_offset = Vector2(1, -2)
+repeat_size = Vector2(320, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="ColorRect" type="ColorRect" parent="below"]
+offset_left = -1.0
+offset_top = 229.0
+offset_right = 319.0
+offset_bottom = 409.0
+color = Color(1, 0.6, 0.2, 1)
+
+[node name="sky" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="sky"]
+texture = ExtResource("2_fw1yu")
+centered = false
+
+[node name="far-clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 1)
+scroll_offset = Vector2(0, 16.47)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="far-clouds"]
+texture = ExtResource("2_qvgwp")
+centered = false
+
+[node name="mid-clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(0, 22.6)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="mid-clouds"]
+texture = ExtResource("2_kvj6v")
+centered = false
+
+[node name="ocean" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, 25.51)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ocean"]
+texture = ExtResource("5_kk5mf")
+centered = false
+
+[node name="close-clouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 24.06)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="close-clouds"]
+texture = ExtResource("2_ur68e")
+centered = false
+
+[node name="sand" type="Parallax2D" parent="."]
+scroll_offset = Vector2(0, 51.54)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="sand"]
 texture = ExtResource("1_uudfk")
 offset = Vector2(160, 90)
