@@ -18,15 +18,13 @@ offset_right = 320.0
 offset_bottom = 197.98001
 color = Color(0.2, 0.4, 1, 1)
 
-[node name="below" type="Parallax2D" parent="."]
-scroll_offset = Vector2(1, -2)
+[node name="below-sand" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
 
-[node name="ColorRect" type="ColorRect" parent="below"]
-offset_left = -1.0
-offset_top = 229.0
-offset_right = 319.0
-offset_bottom = 409.0
+[node name="ColorRect" type="ColorRect" parent="below-sand"]
+offset_top = 211.45
+offset_right = 320.0
+offset_bottom = 611.44965
 color = Color(1, 0.6, 0.2, 1)
 
 [node name="sky" type="Parallax2D" parent="."]
