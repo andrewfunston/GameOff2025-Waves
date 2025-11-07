@@ -9,6 +9,15 @@
 
 [node name="OceanBackground" type="Node2D"]
 
+[node name="above-sky" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 0)
+
+[node name="ColorRect" type="ColorRect" parent="above-sky"]
+offset_top = -302.02
+offset_right = 320.0
+offset_bottom = 197.98001
+color = Color(0.2, 0.4, 1, 1)
+
 [node name="below" type="Parallax2D" parent="."]
 scroll_offset = Vector2(1, -2)
 repeat_size = Vector2(320, 0)
