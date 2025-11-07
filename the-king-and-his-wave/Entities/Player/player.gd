@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 enum States {idle, walking, running, jumping, falling, landing}
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 300.0
+const ACCEL = 600.0
+const JUMP_VELOCITY = -400.0
 
 @onready var mAnimatedSprite2D = $AnimatedSprite2D
 
@@ -27,7 +28,8 @@ func _physics_process(delta):
 		elif direction < 0 :
 			mAnimatedSprite2D.flip_h = true	
 			
-		velocity.x = direction * SPEED
+		velocity.x += direction * ACCEL * delta
+		velocity.x = clamp(velocity.x, -SPEED, SPEED)
 	else: # this reduces the velocity towards 0 by SPEED
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -39,7 +41,9 @@ func _physics_process(delta):
 		processJump()
 	elif mState == States.walking:
 		processWalking()	
-		
+	elif mState == States.running:
+		processRunning()
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -76,12 +80,25 @@ func processJump():
 func processWalking():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		startJump()
+	elif(velocity.x > 150 || velocity.x < -150):
+		startRun()
+		return	
 	elif velocity.x == 0:
 		startIdle()
 
+func processRunning():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		startJump()
+	elif velocity.x < 150 && velocity.x > -150:
+		startWalk()
+		
 func startWalk():
 	mState = States.walking
 	mAnimatedSprite2D.play("walking")
+	
+func startRun():
+	mState = States.running
+	mAnimatedSprite2D.play("running")	
 	
 func startJump():
 	velocity.y = JUMP_VELOCITY

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://y77oudadopiw"]
+
+[ext_resource type="Texture2D" uid="uid://bnic4n8kjdt0b" path="res://Backgrounds/Art/background_sand.png" id="1_uudfk"]
+
+[node name="OceanBackground" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_uudfk")
+offset = Vector2(160, 90)
