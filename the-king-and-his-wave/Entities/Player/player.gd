@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 enum States {idle, walking, running, jumping, falling, landing}
 
-const SPEED = 300.0
-const ACCEL = 600.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 200.0
+const ACCEL = 400.0
+const JUMP_VELOCITY = -300.0
 
 @onready var mAnimatedSprite2D = $AnimatedSprite2D
 
