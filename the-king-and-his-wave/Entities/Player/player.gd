@@ -18,7 +18,7 @@ func _ready():# Called when the node enters the scene tree for the first time.
 		startFall()
 
 func _physics_process(delta):
-	print(str(velocity) + " " + str(position))
+	#print(str(velocity) + " " + str(position))
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	

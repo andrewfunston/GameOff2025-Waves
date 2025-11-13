@@ -48,9 +48,10 @@ size = Vector2(13, 6)
 sprite_frames = SubResource("SpriteFrames_70a3x")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.6699476
+frame_progress = 0.022793509
 
 [node name="Killzone" parent="." instance=ExtResource("2_rsdpc")]
+collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0.5, 19)

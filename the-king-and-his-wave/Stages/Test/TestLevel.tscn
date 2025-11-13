@@ -41,4 +41,4 @@ tile_set = ExtResource("3_u8nij")
 [node name="OceanBackground" parent="." instance=ExtResource("4_ky2y5")]
 
 [node name="Sandbug" parent="." instance=ExtResource("6_sou5k")]
-position = Vector2(439, 150)
+position = Vector2(241, 118)
