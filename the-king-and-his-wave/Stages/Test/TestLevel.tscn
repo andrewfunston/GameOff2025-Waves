@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://b7jo7te8t6k26"]
+[gd_scene load_steps=7 format=4 uid="uid://b7jo7te8t6k26"]
 
 [ext_resource type="PackedScene" uid="uid://xplx4jfe0j6o" path="res://Entities/Player/Player.tscn" id="1_o1p5k"]
 [ext_resource type="Script" uid="uid://nhxgdfqc6r44" path="res://Stages/Test/test_level.gd" id="1_v30q8"]
-[ext_resource type="PackedScene" uid="uid://m7xnpvr63vxj" path="res://Menu/main_menu.tscn" id="2_tn1h8"]
 [ext_resource type="TileSet" uid="uid://qxm6vwfm0nxg" path="res://Tilemaps/Beach/SoftBeachTileSet.tres" id="3_u8nij"]
 [ext_resource type="PackedScene" uid="uid://y77oudadopiw" path="res://Backgrounds/OceanBackground.tscn" id="4_ky2y5"]
 [ext_resource type="PackedScene" uid="uid://dhisydcrvca68" path="res://Scene/sandbug.tscn" id="6_sou5k"]
@@ -11,12 +10,6 @@
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_v30q8")
-
-[node name="MainMenu" parent="." instance=ExtResource("2_tn1h8")]
-offset_left = 145.0
-offset_top = 77.0
-offset_right = 145.0
-offset_bottom = 77.0
 
 [node name="Player" parent="." instance=ExtResource("1_o1p5k")]
 z_index = 5
