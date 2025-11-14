@@ -63,7 +63,7 @@ texture = ExtResource("5_kk5mf")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ocean"]
-z_index = 1
+z_index = 2
 position = Vector2(323, 342.49)
 rotation = 3.1415927
 scale = Vector2(1.0040528, 1.2377597)

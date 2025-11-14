@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://co8pstg781bsr"]
+
+[ext_resource type="Texture2D" uid="uid://pfsovbm5vi37" path="res://Backgrounds/Art/background_ocean_falldeath.png" id="1_7aw4y"]
+[ext_resource type="Texture2D" uid="uid://xpb8bi2ui4je" path="res://Backgrounds/Art/ocean_blend.png" id="2_3x8l0"]
+
+[node name="OceanFalling" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(154, 84)
+texture = ExtResource("1_7aw4y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(153, 55)
+texture = ExtResource("2_3x8l0")
