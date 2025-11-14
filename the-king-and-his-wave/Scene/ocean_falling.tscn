@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://co8pstg781bsr"]
+[gd_scene load_steps=5 format=3 uid="uid://co8pstg781bsr"]
 
 [ext_resource type="Texture2D" uid="uid://pfsovbm5vi37" path="res://Backgrounds/Art/background_ocean_falldeath.png" id="1_7aw4y"]
 [ext_resource type="Texture2D" uid="uid://xpb8bi2ui4je" path="res://Backgrounds/Art/ocean_blend.png" id="2_3x8l0"]
+[ext_resource type="PackedScene" uid="uid://dder63k0xt7f4" path="res://Scene/killzone.tscn" id="3_7aw4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x8l0"]
+size = Vector2(300, 83)
 
 [node name="OceanFalling" type="Node2D"]
 
@@ -12,3 +16,10 @@ texture = ExtResource("1_7aw4y")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(153, 55)
 texture = ExtResource("2_3x8l0")
+
+[node name="Killzone" parent="." instance=ExtResource("3_7aw4y")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(150, 128)
+shape = SubResource("RectangleShape2D_3x8l0")

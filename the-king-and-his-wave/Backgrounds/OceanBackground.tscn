@@ -12,6 +12,7 @@
 
 [node name="above-sky" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="ColorRect" type="ColorRect" parent="above-sky"]
 offset_top = -302.02
@@ -21,6 +22,7 @@ color = Color(0.2, 0.4, 1, 1)
 
 [node name="below-ocean" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="ColorRect" type="ColorRect" parent="below-ocean"]
 offset_top = 211.45
@@ -30,6 +32,7 @@ color = Color(0.14509805, 0.6, 1, 1)
 
 [node name="sky" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="sky"]
 texture = ExtResource("2_fw1yu")
@@ -39,6 +42,7 @@ centered = false
 scroll_scale = Vector2(0.2, 1)
 scroll_offset = Vector2(0, 16.47)
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="far-clouds"]
 texture = ExtResource("2_qvgwp")
@@ -48,6 +52,7 @@ centered = false
 scroll_scale = Vector2(0.4, 1)
 scroll_offset = Vector2(0, 22.6)
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="mid-clouds"]
 texture = ExtResource("2_kvj6v")
@@ -57,12 +62,14 @@ centered = false
 scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(0, 25.51)
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ocean"]
 texture = ExtResource("5_kk5mf")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ocean"]
+visible = false
 z_index = 2
 position = Vector2(323, 342.49)
 rotation = 3.1415927
@@ -74,6 +81,7 @@ centered = false
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(0, 24.06)
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="close-clouds"]
 texture = ExtResource("2_ur68e")
@@ -82,6 +90,7 @@ centered = false
 [node name="sand" type="Parallax2D" parent="."]
 scroll_offset = Vector2(0, 51.54)
 repeat_size = Vector2(320, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="sand"]
 position = Vector2(0, 1.4599991)
