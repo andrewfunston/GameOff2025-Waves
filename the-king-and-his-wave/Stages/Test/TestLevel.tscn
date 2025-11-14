@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://b7jo7te8t6k26"]
+[gd_scene load_steps=8 format=4 uid="uid://b7jo7te8t6k26"]
 
 [ext_resource type="PackedScene" uid="uid://xplx4jfe0j6o" path="res://Entities/Player/Player.tscn" id="1_o1p5k"]
 [ext_resource type="Script" uid="uid://nhxgdfqc6r44" path="res://Stages/Test/test_level.gd" id="1_v30q8"]
+[ext_resource type="Texture2D" uid="uid://b0pigtwohu0tx" path="res://Backgrounds/Art/background_ocean.png" id="3_sou5k"]
 [ext_resource type="TileSet" uid="uid://qxm6vwfm0nxg" path="res://Tilemaps/Beach/SoftBeachTileSet.tres" id="3_u8nij"]
 [ext_resource type="PackedScene" uid="uid://y77oudadopiw" path="res://Backgrounds/OceanBackground.tscn" id="4_ky2y5"]
 [ext_resource type="PackedScene" uid="uid://dhisydcrvca68" path="res://Scene/sandbug.tscn" id="6_sou5k"]
@@ -24,6 +25,14 @@ position = Vector2(154, 148)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="the-ground"]
 position = Vector2(0, 23)
 shape = SubResource("WorldBoundaryShape2D_v30q8")
+
+[node name="BackgroundOcean" type="Sprite2D" parent="the-ground"]
+position = Vector2(110, 41)
+texture = ExtResource("3_sou5k")
+
+[node name="foregroundOcean2" type="Sprite2D" parent="the-ground"]
+position = Vector2(110, 41)
+texture = ExtResource("3_sou5k")
 
 [node name="Node" type="Node" parent="."]
 

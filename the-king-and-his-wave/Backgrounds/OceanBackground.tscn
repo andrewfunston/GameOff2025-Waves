@@ -18,14 +18,14 @@ offset_right = 320.0
 offset_bottom = 197.98001
 color = Color(0.2, 0.4, 1, 1)
 
-[node name="below-sand" type="Parallax2D" parent="."]
+[node name="below-ocean" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
 
-[node name="ColorRect" type="ColorRect" parent="below-sand"]
+[node name="ColorRect" type="ColorRect" parent="below-ocean"]
 offset_top = 211.45
 offset_right = 320.0
 offset_bottom = 611.44965
-color = Color(1, 0.6, 0.2, 1)
+color = Color(0.14509805, 0.6, 1, 1)
 
 [node name="sky" type="Parallax2D" parent="."]
 repeat_size = Vector2(320, 0)
@@ -58,6 +58,13 @@ scroll_offset = Vector2(0, 25.51)
 repeat_size = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ocean"]
+texture = ExtResource("5_kk5mf")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ocean"]
+z_index = 1
+position = Vector2(319, 326.49)
+rotation = 3.1415927
 texture = ExtResource("5_kk5mf")
 centered = false
 
