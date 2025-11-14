@@ -63,8 +63,9 @@ centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ocean"]
 z_index = 1
-position = Vector2(319, 326.49)
+position = Vector2(323, 342.49)
 rotation = 3.1415927
+scale = Vector2(1.0040528, 1.2377597)
 texture = ExtResource("5_kk5mf")
 centered = false
 
@@ -82,5 +83,6 @@ scroll_offset = Vector2(0, 51.54)
 repeat_size = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="sand"]
+position = Vector2(0, 1.4599991)
 texture = ExtResource("1_uudfk")
 offset = Vector2(160, 90)
