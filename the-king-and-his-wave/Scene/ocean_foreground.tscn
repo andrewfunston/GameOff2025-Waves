@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu88qvkjlrkdq"]
+
+[ext_resource type="Texture2D" uid="uid://xpb8bi2ui4je" path="res://Backgrounds/Art/ocean_blend.png" id="1_i18x4"]
+[ext_resource type="Texture2D" uid="uid://pfsovbm5vi37" path="res://Backgrounds/Art/background_ocean_falldeath.png" id="2_vekt3"]
+
+[node name="Ocean foreground" type="Node2D"]
+z_index = 2
+
+[node name="ocean" type="Parallax2D" parent="."]
+rotation = 3.1415927
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, 25.51)
+repeat_size = Vector2(320, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ocean"]
+position = Vector2(-618, -239.48996)
+scale = Vector2(1.0010915, 1.1449351)
+texture = ExtResource("1_i18x4")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ocean"]
+visible = false
+z_index = 2
+position = Vector2(323, 342.49)
+rotation = 3.1415927
+scale = Vector2(1.0040528, 1.2377597)
+texture = ExtResource("2_vekt3")
+centered = false
