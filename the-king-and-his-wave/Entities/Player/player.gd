@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var wave: Node2D   # set this to the Wave in the Inspector
+
+
 enum States {idle, walking, running, jumping, falling, landing}
 
 const SPEED = 200.0
@@ -127,14 +130,20 @@ func startRun():
 	mAnimatedSprite2D.play("running")	
 	
 func startJump():
-	# NEW: only jump if we still have jumps left
 	if mJumpsLeft <= 0:
 		return
-	
-	mJumpsLeft -= 1 # we just used one of our jumps (first or double)
+
+	# Second jump in the air = double jump
+	var is_double_jump := not is_on_floor() and mJumpsLeft == 1
+
+	mJumpsLeft -= 1
 	velocity.y = JUMP_VELOCITY
 	mState = States.jumping
 	mAnimatedSprite2D.play("jump")
+
+	if is_double_jump and wave:
+		wave.call("on_double_jump", global_position)
+
 	
 func startFall():
 	mState = States.falling

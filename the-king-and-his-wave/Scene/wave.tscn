@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdrg5w0krmph1"]
+
+[ext_resource type="Script" uid="uid://d2kc3jbwkmt2k" path="res://Scene/wave.gd" id="1_r54pb"]
+[ext_resource type="Texture2D" uid="uid://cj3pnfak44lus" path="res://assets_beries adventuress/Berie's_Adventure_Seaside_Asset_Pack_Free/Spritesheet/character_berie_idle.png" id="1_xx7dr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx7dr"]
+atlas = ExtResource("1_xx7dr")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r54pb"]
+atlas = ExtResource("1_xx7dr")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkolj"]
+atlas = ExtResource("1_xx7dr")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7spjy"]
+atlas = ExtResource("1_xx7dr")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odwne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx7dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r54pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkolj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7spjy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_r54pb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_odwne")
+autoplay = "default"
+frame_progress = 0.30013478
