@@ -56,4 +56,3 @@ position = Vector2(20, 183)
 follow_target = NodePath("../Player")
 follow_speed = 400.0
 x_offset_behind = 48.0
-smack_time = 0.1
