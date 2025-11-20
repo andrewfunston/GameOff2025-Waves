@@ -52,7 +52,7 @@ position = Vector2(-284, 88)
 
 [node name="Wave" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("8_1nyun")]
 z_index = 2
-position = Vector2(20, 183)
+position = Vector2(639, 186)
 follow_target = NodePath("../Player")
 follow_speed = 400.0
 x_offset_behind = 48.0
