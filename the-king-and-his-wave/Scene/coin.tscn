@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://n3sbxlma3bsg"]
+
+[ext_resource type="Script" uid="uid://d0twq26sl86h0" path="res://Scene/booty.gd" id="1_5e757"]
+[ext_resource type="Texture2D" uid="uid://cxde38rgnrbca" path="res://assets_beries adventuress/Berie's_Adventure_Seaside_Asset_Pack_Free/Spritesheet/collectibles_coin_gold.png" id="1_wqyjo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqyjo"]
+atlas = ExtResource("1_wqyjo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e757"]
+atlas = ExtResource("1_wqyjo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g4lx"]
+atlas = ExtResource("1_wqyjo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6s8f"]
+atlas = ExtResource("1_wqyjo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71t1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqyjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e757")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g4lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6s8f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0oo1"]
+radius = 8.0
+
+[node name="Booty" type="Area2D"]
+script = ExtResource("1_5e757")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_71t1m")
+autoplay = "default"
+frame_progress = 0.7507002
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_e0oo1")

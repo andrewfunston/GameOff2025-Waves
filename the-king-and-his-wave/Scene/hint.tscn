@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbfpsgux05kp"]
+
+[ext_resource type="FontFile" uid="uid://epwii1aovlw1" path="res://Backgrounds/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="1_j6fqb"]
+
+[sub_resource type="Theme" id="Theme_nmsem"]
+
+[node name="Hint" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 90.0
+offset_bottom = 40.0
+theme = SubResource("Theme_nmsem")
+theme_override_fonts/normal_font = ExtResource("1_j6fqb")
+theme_override_font_sizes/normal_font_size = 10
+text = "Do A double jump!
+(space + Space)"
+fit_content = true
+autowrap_mode = 0
