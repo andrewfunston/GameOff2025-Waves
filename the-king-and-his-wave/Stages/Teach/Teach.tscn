@@ -19,7 +19,7 @@ script = ExtResource("1_8sul7")
 
 [node name="Player" parent="." node_paths=PackedStringArray("wave") groups=["player"] instance=ExtResource("2_rbk6j")]
 z_index = 5
-position = Vector2(681, 88)
+position = Vector2(695, 91)
 wave = NodePath("../Wave")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
