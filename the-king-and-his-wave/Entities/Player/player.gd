@@ -17,13 +17,12 @@ const DASH_TIME: float = 0.15   # how long the dash lasts (seconds)
 @onready var mAnimatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
 
 var mState: States = States.idle
-var mLastVelocity: Vector2
 var mIdleTime: float = 0.0
 var mJumpsLeft: int = MAX_JUMPS
 
 # Dash state
-var canDash: bool = true        # reset when touching ground
-var isDashing: bool = false
+var mCanDash: bool = true        # reset when touching ground
+var mIsDashing: bool = false
 var dash_timer: float = 0.0
 var dash_dir: int = 0           # -1 left, 1 right
 
@@ -31,7 +30,6 @@ var dash_dir: int = 0           # -1 left, 1 right
 func _ready() -> void:
 	# start with full jumps & dash
 	mJumpsLeft = MAX_JUMPS
-	canDash = true
 
 	# when we start the level, if we're not on the floor we need to start falling.
 	if not is_on_floor():
@@ -47,56 +45,50 @@ func _physics_process(delta: float) -> void:
 	var direction: float = Input.get_axis("ui_left", "ui_right")
 
 	# ---------- DASH INPUT ----------
-	if Input.is_action_just_pressed("dash") and canDash and not isDashing:
-		var dash_input_dir: float = direction
-		if dash_input_dir == 0.0:
-			# no input? dash in facing direction
-			if mAnimatedSprite2D.flip_h:
-				dash_input_dir = -1.0
-			else:
-				dash_input_dir = 1.0
-		startDash(int(sign(dash_input_dir)))
-
-	# ---------- HORIZONTAL MOVEMENT (disabled during dash) ----------
-	if not isDashing:
-		if direction != 0.0:
-			if direction > 0.0:
-				mAnimatedSprite2D.flip_h = false
-			elif direction < 0.0:
-				mAnimatedSprite2D.flip_h = true
-
-			velocity.x += direction * ACCEL * delta
-			velocity.x = clamp(velocity.x, -SPEED, SPEED)
-		else:
-			# this reduces the velocity towards 0 by SPEED
-			velocity.x = move_toward(velocity.x, 0.0, SPEED)
-
-	# ---------- STATE MACHINE (disabled during dash) ----------
-	if not isDashing:
-		if mState == States.idle:
-			processIdle(delta)
-		elif mState == States.falling:
-			processFalling()
-		elif mState == States.jumping:
-			processJump()
-		elif mState == States.walking:
-			processWalking()
-		elif mState == States.running:
-			processRunning()
-
-	# ---------- GRAVITY (disabled during dash) ----------
-	if not isDashing and not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# ---------- DASH TIMER ----------
-	if isDashing:
+	if mIsDashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			endDash()
+			
+		move_and_slide()
+		return
+	elif Input.is_action_just_pressed("dash") and mCanDash:
+		var dash_input_dir = -1.0 if mAnimatedSprite2D.flip_h else 1.0
+		startDash(int(sign(dash_input_dir)))
+		
+		move_and_slide()
+		return
 
-	mLastVelocity = velocity
+	# ---------- HORIZONTAL MOVEMENT (disabled during dash) ----------
+	if direction != 0.0:
+		if direction > 0.0:
+			mAnimatedSprite2D.flip_h = false
+		elif direction < 0.0:
+			mAnimatedSprite2D.flip_h = true
+
+		velocity.x += direction * ACCEL * delta
+		velocity.x = clamp(velocity.x, -SPEED, SPEED)
+	else:
+		# this reduces the velocity towards 0 by SPEED
+		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+
+	# ---------- STATE MACHINE (disabled during dash) ----------
+	if mState == States.idle:
+		processIdle(delta)
+	elif mState == States.falling:
+		processFalling()
+	elif mState == States.jumping:
+		processJump()
+	elif mState == States.walking:
+		processWalking()
+	elif mState == States.running:
+		processRunning()
+
+	# ---------- GRAVITY (disabled during dash) ----------
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
 	move_and_slide()
-
 
 # ================== STATES ==================
 
@@ -104,7 +96,7 @@ func processFalling() -> void:
 	if is_on_floor():
 		# we landed, so reset available jumps and dash
 		mJumpsLeft = MAX_JUMPS
-		canDash = true
+		mCanDash = true
 
 		# we have an animation for "landing" we may want to add in.
 		if velocity.x == 0.0:
@@ -142,8 +134,7 @@ func processJump() -> void:
 
 
 func processWalking() -> void:
-	# use jump counter instead of "only if on floor"
-	if Input.is_action_just_pressed("ui_accept") and mJumpsLeft > 0:
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		startJump()
 	elif not is_on_floor():
 		startFall()
@@ -154,8 +145,7 @@ func processWalking() -> void:
 
 
 func processRunning() -> void:
-	# use jump counter instead of "only if on floor"
-	if Input.is_action_just_pressed("ui_accept") and mJumpsLeft > 0:
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		startJump()
 	elif not is_on_floor():
 		startFall()
@@ -164,16 +154,13 @@ func processRunning() -> void:
 
 
 # ================== STATE START HELPERS ==================
-
 func startWalk() -> void:
 	mState = States.walking
 	mAnimatedSprite2D.play("walking")
 
-
 func startRun() -> void:
 	mState = States.running
 	mAnimatedSprite2D.play("running")
-
 
 func startJump() -> void:
 	if mJumpsLeft <= 0:
@@ -210,8 +197,8 @@ func startDash(dir: int) -> void:
 	if dir == 0:
 		return
 
-	isDashing = true
-	canDash = false
+	mIsDashing = true
+	mCanDash = false
 	dash_dir = dir
 	dash_timer = DASH_TIME
 
@@ -236,11 +223,11 @@ func startDash(dir: int) -> void:
 
 
 func endDash() -> void:
-	isDashing = false
+	mIsDashing = false
 
 	# If we finished the dash while on the ground, allow another dash immediately
 	if is_on_floor():
-		canDash = true
+		mCanDash = true
 
 	# NEW: tell the wave dash is over
 	if wave and wave.has_method("on_dash_end"):
