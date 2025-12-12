@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpmkhv4r2kifc"]
+
+[ext_resource type="Script" uid="uid://djl66q1o4vqq7" path="res://type_test.gd" id="1_rur0l"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rur0l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 244.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "Type in Morse Code"
+horizontal_alignment = 1
