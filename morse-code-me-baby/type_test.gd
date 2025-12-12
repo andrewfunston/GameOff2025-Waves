@@ -1,11 +1,13 @@
 extends Node2D
 
+@onready var mRichTextLabel = $RichTextLabel
+
 var mIsPressed:bool
 var mPressedTime:float
 var mFreeTime:float
 
-const sShortPressMax:float = .15
-const sSpaceBetweenLetters:float = sShortPressMax + .2
+const sShortPressMax:float = .25
+const sSpaceBetweenLetters:float = sShortPressMax + .5
 const sSpaceBetweenWords:float = sSpaceBetweenLetters + 1
 
 enum MorsePress { short, long }
@@ -101,5 +103,8 @@ func boopsToLetters():
 
 func lettersToWords():
 	print("lettersToWords " + str(mCurrentLetters))
+	
+	mRichTextLabel.clear()
+	mRichTextLabel.add_text("".join(mCurrentLetters))
 	
 	mCurrentLetters.clear()
