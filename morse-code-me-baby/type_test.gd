@@ -6,7 +6,7 @@ var mFreeTime:float
 
 const sShortPressMax:float = .15
 const sSpaceBetweenLetters:float = sShortPressMax + .2
-const sSpaceBetweenWords:float = sSpaceBetweenLetters + .5
+const sSpaceBetweenWords:float = sSpaceBetweenLetters + 1
 
 enum MorsePress { short, long }
 var mMorseToProcess:Array=[]
@@ -91,10 +91,12 @@ func boopsToLetters():
 				break
 			
 			if(index == mMorseToProcess.size()):
+				print("added:" + letter)
 				mCurrentLetters.append(letter)
 				mMorseToProcess.clear()
 				return
 
+	print("added nothing you dumb bitch")
 	mMorseToProcess.clear()
 
 func lettersToWords():
