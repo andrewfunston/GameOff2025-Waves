@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi25q42w3errl"]
+
+[ext_resource type="Texture2D" uid="uid://bica4iimky8ay" path="res://character sprites/Small-8-Direction-Characters_by_AxulArt/Small-8-Direction-Characters_by_AxulArt.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b2u6o7ek6ypla" path="res://player.gd" id="1_onrkg"]
+
+[node name="Player" type="Node2D"]
+position = Vector2(0, -9)
+script = ExtResource("1_onrkg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_4flbx")
+region_enabled = true
+region_rect = Rect2(66, 150, 11, 17)

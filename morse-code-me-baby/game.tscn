@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvrvgbyqxyrfj"]
+[gd_scene load_steps=5 format=3 uid="uid://bacg1wtbitkx4"]
 
-[ext_resource type="Texture2D" uid="uid://bqi62s3dvl5ky" path="res://kenney_isometric-blocks/Tilesheet/tilesheet_complete.png" id="1_julm7"]
-[ext_resource type="PackedScene" uid="uid://bi25q42w3errl" path="res://player.tscn" id="2_axgwx"]
+[ext_resource type="Texture2D" uid="uid://bqi62s3dvl5ky" path="res://kenney_isometric-blocks/Tilesheet/tilesheet_complete.png" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bi25q42w3errl" path="res://player.tscn" id="2_feb5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axgwx"]
-texture = ExtResource("1_julm7")
+texture = ExtResource("1_e2o6t")
 texture_region_size = Vector2i(111, 128)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -31)
@@ -6980,7 +6980,17 @@ tile_set = SubResource("TileSet_ys0t5")
 format = 2
 layer_0/tile_data = PackedInt32Array(196612, 0, 0, 131076, 0, 0, 65540, 0, 0, 4, 0, 0, -65532, 0, 0, -131068, 0, 0, -196604, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 65536, 0, -262134, 65536, 0, -262133, 0, 0, 196613, 0, 0, 131077, 0, 0, 65542, 0, 0, 6, 0, 0, -65530, 0, 0, -131066, 0, 0, -131067, 0, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, -196603, 0, 0, -65528, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 131079, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, 196615, 65536, 0, -131064, 65536, 0, -196599, 65536, 0, -196598, 65536, 0, -131065, 0, 1, -65529, 0, 1, 7, 0, 1, 65543, 0, 1, -65526, 131072, 1, 10, 131072, 1, 65546, 131072, 1, 131082, 131072, 1, -65525, 131072, 1, -131061, 131072, 1, -131063, 131072, 1, -65527, 131072, 1, 9, 131072, 1, 65545, 131072, 1, -196597, 131072, 1, -131062, 196608, 4, -196600, 196608, 4, -196601, 196608, 4, -196602, 196608, 4, 196616, 196608, 4, 196617, 196608, 4, 131081, 196608, 4, 196618, 0, 4, 11, 0, 4, 65547, 0, 4, 131083, 0, 4, 196619, 0, 4)
 
-[node name="Player" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("2_axgwx")]
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Player" parent="Units" node_paths=PackedStringArray("tile_map") instance=ExtResource("2_feb5d")]
 position = Vector2(435, 360)
 scale = Vector2(4, 4)
-tile_map = NodePath("../TileMap")
+tile_map = NodePath("../../TileMap")
+
+[node name="GridManager" type="Node" parent="."]
+
+[node name="TurnController" type="Node" parent="."]
+
+[node name="FogOfWar" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]

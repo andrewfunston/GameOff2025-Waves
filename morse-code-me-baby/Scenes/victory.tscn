@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://be352536hpqbw"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Victory" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.272
+anchor_right = 0.68500006
+anchor_bottom = 0.517
+offset_left = -0.2880249
+offset_top = -0.25601196
+offset_right = -0.12005615
+offset_bottom = -0.016021729
+theme_override_font_sizes/font_size = 36
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playagain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47700003
+anchor_top = 0.47400004
+anchor_right = 0.55
+anchor_bottom = 0.522
+offset_left = -0.5040283
+offset_top = -0.15203857
+offset_right = 0.39996338
+offset_bottom = -0.25601196
+text = "Play again?"
+
+[node name="main menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47700003
+anchor_top = 0.47400004
+anchor_right = 0.55
+anchor_bottom = 0.522
+offset_left = -4.5040283
+offset_top = 73.84796
+offset_right = 5.3999634
+offset_bottom = 73.74399
+text = "main menu"

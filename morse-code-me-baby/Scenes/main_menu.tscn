@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://3bkq1mprsgcd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41900003
+anchor_top = 0.13000001
+anchor_right = 0.666
+anchor_bottom = 0.29000002
+offset_left = -18.68805
+offset_top = 89.759995
+offset_right = -19.231995
+offset_bottom = 90.07999
+theme_override_font_sizes/font_size = 33
+text = "Code Talker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31300002
+anchor_top = 0.30900002
+anchor_right = 0.518
+anchor_bottom = 0.423
+offset_left = -18.57602
+offset_top = 85.76799
+offset_right = -18.736023
+offset_bottom = 89.895996
+theme_override_font_sizes/font_size = 29
+text = "Start"
+
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.321
+anchor_top = 0.45800003
+anchor_right = 0.521
+anchor_bottom = 0.57900006
+offset_left = -31.792023
+offset_top = 96.21597
+offset_right = -19.192017
+offset_bottom = 89.80795
+text = "Tutorial 
+(recommended)"
+
+[node name="Start code" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.549
+anchor_top = 0.30400002
+anchor_right = 0.73300004
+anchor_bottom = 0.42000002
+offset_left = -20.447998
+offset_top = 96.00798
+offset_right = -19.416016
+offset_bottom = 89.84
+theme_override_font_sizes/font_size = 34
+text = ". _ _ _ _"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial code" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.568
+anchor_top = 0.47700003
+anchor_right = 0.71400005
+anchor_bottom = 0.568
+offset_left = -19.335999
+offset_top = 89.90399
+offset_right = -18.528076
+offset_bottom = 89.935974
+theme_override_font_sizes/font_size = 34
+text = ". . _ _ _"
+horizontal_alignment = 1
+vertical_alignment = 1

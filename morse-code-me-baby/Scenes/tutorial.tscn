@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://gres0gubn4f0"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.411
+anchor_top = 0.053000003
+anchor_right = 0.586
+anchor_bottom = 0.273
+offset_left = -11.472015
+offset_top = -10.344002
+offset_right = 1.9279785
+offset_bottom = 0.09599304
+theme_override_font_sizes/font_size = 39
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.165
+anchor_right = 0.273
+anchor_bottom = 0.261
+offset_left = -0.008003235
+offset_top = 0.0799942
+offset_right = -0.4960022
+offset_bottom = -0.12800598
+theme_override_font_sizes/font_size = 39
+text = "How to Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.165
+anchor_right = 0.273
+anchor_bottom = 0.261
+offset_left = -5.008003
+offset_top = 107.079994
+offset_right = -5.496002
+offset_bottom = 106.871994
+text = "Use Morse Code to:
+Move player to gird space 
+Fire mortar
+Attack enemy in adjacent cell
+
+Turn based:
+Move - Fire/Attack - Move
+
+Firing Mortar will reveal your location, but you may also ping near by enemies 
+CQC attack will provide double movement
+
+Fog of war:
+When Mortar is fired you can see the cells attacked
+sound wave will echo enemy locations to you
+you can only see in the 8 adjacent cells next to you"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dxh7e38dbbs3s"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = 0.23300001
+anchor_right = 0.58500004
+anchor_bottom = 0.33
+offset_left = 0.45599365
+offset_top = 0.015991211
+offset_right = 0.079956055
+offset_bottom = 0.1599884
+theme_override_font_sizes/font_size = 45
+text = "Game Over"
+
+[node name="Try again" type="Button" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 229.0
+offset_right = 678.0
+offset_bottom = 327.0
+text = "Try Again?
+. _ _ _ _ "
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 348.0
+offset_right = 687.0
+offset_bottom = 418.0
+text = "Main Menu
+. . _ _ _"
