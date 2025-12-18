@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xgevw8bsfw12"]
+
+[ext_resource type="Script" uid="uid://27sayohycyw8" path="res://enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bica4iimky8ay" path="res://character sprites/Small-8-Direction-Characters_by_AxulArt/Small-8-Direction-Characters_by_AxulArt.png" id="2_afpow"]
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(0, -32)
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("2_afpow")
+region_enabled = true
+region_rect = Rect2(65, 246, 13, 17)
